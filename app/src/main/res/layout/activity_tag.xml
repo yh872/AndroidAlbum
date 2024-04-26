@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- Go Back Button -->
+    <Button
+        android:id="@+id/BackButton500"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Back"
+        android:onClick="go_backtoalbum"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"/>
+
+    <!-- EditText for search input -->
+    <EditText
+        android:id="@+id/tagname"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter Tag Value: "
+        android:layout_below="@id/BackButton500"
+        android:layout_marginTop="16dp"
+        android:inputType="text"/>
+
+    <!-- Chip Group for options -->
+    <com.google.android.material.chip.ChipGroup
+        android:id="@+id/chipGroup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tagname"
+        android:layout_marginTop="16dp">
+
+        <!-- Option 1 Chip -->
+        <com.google.android.material.chip.Chip
+            android:id="@+id/PersonChip"
+            style="@style/Widget.MaterialComponents.Chip.Choice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Person"
+            android:checkable="true"/>
+
+        <!-- Option 2 Chip -->
+        <com.google.android.material.chip.Chip
+            android:id="@+id/LocationChip"
+            style="@style/Widget.MaterialComponents.Chip.Choice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Location"
+            android:checkable="true"/>
+
+    </com.google.android.material.chip.ChipGroup>
+
+    <!-- Search Button -->
+    <Button
+        android:id="@+id/addtagbutton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Add Tag"
+        android:onClick="tagClicked"
+        android:layout_below="@id/chipGroup"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"/>
+
+    <ListView
+        android:id="@+id/ListofTags"
+        android:layout_width="175dp"
+        android:layout_height="350dp"
+        android:layout_marginTop="275dp"
+        android:layout_marginLeft="85dp"/>
+</RelativeLayout>

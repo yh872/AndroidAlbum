@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- Buttons -->
+    <!-- Button 1 -->
+    <Button
+        android:id="@+id/opealb"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Open"
+        android:onClick="openClicked"
+        app:layout_constraintEnd_toStartOf="@id/crealb"
+        app:layout_constraintHorizontal_chainStyle="spread_inside"
+        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- Button 2 -->
+    <Button
+        android:id="@+id/crealb"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Create"
+        android:onClick="createClicked"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_chainStyle="spread_inside"
+        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintStart_toEndOf="@id/opealb"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- Button 3 -->
+    <Button
+        android:id="@+id/delalb"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Delete"
+        android:onClick="deleteClicked"
+        app:layout_constraintEnd_toStartOf="@id/renalb"
+        app:layout_constraintHorizontal_chainStyle="spread_inside"
+        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/opealb" />
+
+    <!-- Button 4 -->
+    <Button
+        android:id="@+id/renalb"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Rename"
+        android:onClick="renameClicked"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_chainStyle="spread_inside"
+        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintStart_toEndOf="@id/delalb"
+        app:layout_constraintTop_toBottomOf="@id/crealb" />
+
+    <!-- Search Button -->
+    <Button
+        android:id="@+id/searchb"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Search"
+        android:onClick="searchClicked"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/renalb"
+        android:layout_marginTop="16dp" />
+
+    <!-- Text Field -->
+    <TextView
+        android:id="@+id/albtext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Your albums"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/searchb" />
+
+    <!-- ListView -->
+    <ListView
+        android:id="@+id/amfg"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/albtext"
+        app:layout_constraintVertical_bias="1.0" />
+</androidx.constraintlayout.widget.ConstraintLayout>

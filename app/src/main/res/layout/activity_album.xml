@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- Top Button -->
+    <Button
+        android:id="@+id/BackButton6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Back"
+        android:layout_marginTop="16dp"
+        android:layout_centerHorizontal="true"
+        android:onClick="BackButton"/>
+
+    <!-- Three Buttons Underneath -->
+    <LinearLayout
+        android:id="@+id/lay"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/BackButton6"
+        android:orientation="horizontal"
+        android:gravity="center">
+
+        <Button
+            android:id="@+id/Addd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Add"
+            android:onClick="addClicked"/>
+
+        <Button
+            android:id="@+id/dell"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Delete"
+            android:onClick="deleted_clicked"/>
+
+        <Button
+            android:id="@+id/movv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Move"
+            android:onClick="move_clicked"/>
+    </LinearLayout>
+
+    <!-- Large Button Underneath -->
+    <Button
+        android:id="@+id/disp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Display"
+        android:layout_below="@id/lay"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="8dp"
+        android:textSize="20sp"
+        android:onClick="display_clicked"/>
+
+    <!-- First Row of Image Views -->
+    <ImageView
+        android:id="@+id/image1"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:clickable="true"
+        android:layout_below="@id/disp"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="16dp"/>
+
+    <ImageView
+        android:id="@+id/image2"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_below="@id/disp"
+        android:layout_toEndOf="@id/image1"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="16dp"/>
+
+    <ImageView
+        android:id="@+id/image3"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_below="@id/disp"
+        android:layout_toEndOf="@id/image2"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="16dp"/>
+
+    <!-- Second Row of Image Views -->
+    <ImageView
+        android:id="@+id/image4"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_below="@id/image1"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="16dp"/>
+
+    <ImageView
+        android:id="@+id/image5"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_below="@id/image1"
+        android:layout_toEndOf="@id/image4"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="16dp"/>
+
+    <ImageView
+        android:id="@+id/image6"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_below="@id/image1"
+        android:layout_toEndOf="@id/image5"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="16dp"/>
+
+    <!-- Buttons for Navigation -->
+    <Button
+        android:id="@+id/prevbut"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Previous"
+        android:onClick = "previousClicked"
+        android:layout_below="@id/image4"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="16dp"/>
+
+    <Button
+        android:id="@+id/next_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick = "nextClicked"
+        android:text="Next"
+        android:layout_below="@id/image4"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="16dp"/>
+</RelativeLayout>

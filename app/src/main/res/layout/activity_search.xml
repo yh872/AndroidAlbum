@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- Go Back Button -->
+    <Button
+        android:id="@+id/BackButton5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Back"
+        android:onClick="BackClicked"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"/>
+
+    <EditText
+        android:id="@+id/Searchtags"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Person=Adam"
+        android:layout_below="@id/BackButton5"
+        android:layout_marginTop="16dp"
+        android:inputType="text"/>
+
+    <com.google.android.material.chip.ChipGroup
+        android:id="@+id/chipGroup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/Searchtags"
+        android:layout_marginTop="16dp">
+
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/SingleChip"
+            style="@style/Widget.MaterialComponents.Chip.Choice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Single"
+            android:checkable="true"
+            android:onClick="SingleClicked"/>
+
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/ConjuctiveChip"
+            style="@style/Widget.MaterialComponents.Chip.Choice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Conjunctive"
+            android:checkable="true"
+            android:onClick="ConjunctiveClicked"/>
+
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/DisjunctiveChip"
+            style="@style/Widget.MaterialComponents.Chip.Choice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Disjunctive"
+            android:checkable="true"
+            android:onClick="DisjunctiveClicked"/>
+    </com.google.android.material.chip.ChipGroup>
+
+
+    <Button
+        android:id="@+id/searchButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Search"
+        android:onClick="SearchTag"
+        android:layout_below="@id/chipGroup"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"/>
+</RelativeLayout>
