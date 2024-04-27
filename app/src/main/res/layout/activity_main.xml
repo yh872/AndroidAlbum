@@ -5,8 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <!-- Buttons -->
-    <!-- Button 1 -->
+
     <Button
         android:id="@+id/opealb"
         android:layout_width="0dp"
@@ -19,7 +18,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <!-- Button 2 -->
+
     <Button
         android:id="@+id/crealb"
         android:layout_width="0dp"
@@ -32,7 +31,7 @@
         app:layout_constraintStart_toEndOf="@id/opealb"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <!-- Button 3 -->
+
     <Button
         android:id="@+id/delalb"
         android:layout_width="0dp"
@@ -45,7 +44,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/opealb" />
 
-    <!-- Button 4 -->
+
     <Button
         android:id="@+id/renalb"
         android:layout_width="0dp"
@@ -58,7 +57,7 @@
         app:layout_constraintStart_toEndOf="@id/delalb"
         app:layout_constraintTop_toBottomOf="@id/crealb" />
 
-    <!-- Search Button -->
+
     <Button
         android:id="@+id/searchb"
         android:layout_width="wrap_content"
@@ -71,7 +70,7 @@
         app:layout_constraintTop_toBottomOf="@id/renalb"
         android:layout_marginTop="16dp" />
 
-    <!-- Text Field -->
+
     <TextView
         android:id="@+id/albtext"
         android:layout_width="wrap_content"
@@ -82,7 +81,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/searchb" />
 
-    <!-- ListView -->
+
     <ListView
         android:id="@+id/amfg"
         android:layout_width="0dp"

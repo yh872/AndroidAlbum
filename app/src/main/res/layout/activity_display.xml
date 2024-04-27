@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <!-- Top Button -->
+
     <Button
         android:id="@+id/BackButton200"
         android:layout_width="wrap_content"
@@ -15,7 +15,7 @@
         android:layout_centerHorizontal="true"
         android:onClick="Go_Last"/>
 
-    <!-- Three Buttons Underneath -->
+
     <LinearLayout
         android:id="@+id/threeButtonLayout"
         android:layout_width="match_parent"

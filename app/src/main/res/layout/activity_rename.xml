@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <!-- Back Button -->
+
     <Button
         android:id="@+id/backButton345"
         android:layout_width="wrap_content"
@@ -18,7 +18,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"/>
 
-    <!-- Old Album Name EditText -->
+
     <EditText
         android:id="@+id/oldalbedittext"
         android:layout_width="0dp"
@@ -29,7 +29,7 @@
         app:layout_constraintTop_toBottomOf="@id/backButton345"
         android:layout_margin="16dp"/>
 
-    <!-- New Album Name EditText -->
+
     <EditText
         android:id="@+id/albedittext"
         android:layout_width="0dp"
@@ -42,7 +42,7 @@
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"/>
 
-    <!-- Rename Button -->
+
     <Button
         android:id="@+id/rname"
         android:layout_width="wrap_content"
@@ -54,7 +54,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="16dp"/>
 
-    <!-- List View -->
+
     <ListView
         android:id="@+id/rlist"
         android:layout_width="0dp"

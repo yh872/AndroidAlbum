@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <!-- Top Button -->
+
     <Button
         android:id="@+id/BackButton6"
         android:layout_width="wrap_content"
@@ -15,7 +15,7 @@
         android:layout_centerHorizontal="true"
         android:onClick="BackButton"/>
 
-    <!-- Three Buttons Underneath -->
+
     <LinearLayout
         android:id="@+id/lay"
         android:layout_width="match_parent"
@@ -46,7 +46,7 @@
             android:onClick="move_clicked"/>
     </LinearLayout>
 
-    <!-- Large Button Underneath -->
+
     <Button
         android:id="@+id/disp"
         android:layout_width="wrap_content"
@@ -58,7 +58,6 @@
         android:textSize="20sp"
         android:onClick="display_clicked"/>
 
-    <!-- First Row of Image Views -->
     <ImageView
         android:id="@+id/image1"
         android:layout_width="100dp"
@@ -87,7 +86,7 @@
         android:layout_marginTop="16dp"
         android:layout_marginStart="16dp"/>
 
-    <!-- Second Row of Image Views -->
+
     <ImageView
         android:id="@+id/image4"
         android:layout_width="100dp"
@@ -115,7 +114,6 @@
         android:layout_marginTop="16dp"
         android:layout_marginStart="16dp"/>
 
-    <!-- Buttons for Navigation -->
     <Button
         android:id="@+id/prevbut"
         android:layout_width="wrap_content"

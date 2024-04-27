@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <!-- Go Back Button -->
+
     <Button
         android:id="@+id/BackButton5"
         android:layout_width="wrap_content"

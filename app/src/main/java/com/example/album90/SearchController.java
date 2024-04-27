@@ -63,22 +63,72 @@ public class SearchController extends AppCompatActivity {
         startActivity(intent);
     }
     public void SingleClicked(View view){
-        System.out.println("hello");
+       if (Single.isChecked() && !Conjunctive.isChecked() && !Disjunctive.isChecked()){
+           SearchTags.setHint("Person=Adam");
+       }
     }
     public void ConjunctiveClicked(View view){
-
+        if (Conjunctive.isChecked() || Disjunctive.isChecked()){
+            SearchTags.setHint("Person=Adam,Location=USA");
+            return;
+        }
+        SearchTags.setHint("Person=Adam");
     }
     public void DisjunctiveClicked(View view){
-
+        if (Conjunctive.isChecked() || Disjunctive.isChecked()){
+            SearchTags.setHint("Person=Adam,Location=USA");
+            return;
+        }
+        SearchTags.setHint("Person=Adam");
     }
     public String getType(String s){
-        return "";
+
+        int equalIndex = s.indexOf('=');
+
+        if (equalIndex == -1) {
+            return "";
+        }
+
+
+        return s.substring(0, equalIndex);
+    }
+
+    public boolean validTag(String s){
+        int equalIndex = s.indexOf('=');
+
+        if (equalIndex == -1) {
+            return false;
+        }
+       String temp =  s.substring(0, equalIndex);
+        if (temp.equalsIgnoreCase("Person") ||
+                temp.equalsIgnoreCase("Location")){
+            if (s.length() > equalIndex +1) {
+                return true;
+            }
+        }
+        return false;
+
+    }
+
+    public boolean equalTags(String s1, String s2){
+        String s1temp = s1.toLowerCase();
+        s1temp = s1temp.replaceAll(" ", "");
+        String s2temp = s2.toLowerCase();
+        s2temp = s2temp.replaceAll(" ", "");
+        if (s2temp.equals(s1temp)){
+            return true;
+        }
+        if (s2temp.startsWith(s1temp)){
+            return true;
+        }
+        return false;
     }
 
     public void SearchTag(View view){
         Context context = view.getContext();
         Editable text = SearchTags.getText();
         String search = text.toString();
+        search = search.replaceAll(" ", "");
         if (!OneChipSelected()){
             AlertDialog.Builder builder = new AlertDialog.Builder(context);
             builder.setTitle("Error");
@@ -110,6 +160,50 @@ public class SearchController extends AppCompatActivity {
         }
 
         if (Single.isChecked()){
+            if (!validTag(search)){
+                AlertDialog.Builder builder = new AlertDialog.Builder(context);
+                builder.setTitle("Error");
+                builder.setMessage("Invalid search.");
+                builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        dialogInterface.dismiss();
+                    }
+                });
+                AlertDialog alertDialog = builder.create();
+                alertDialog.show();
+                return;
+
+            }
+            Album tempAlb = new Album("temp");
+            for (Album a : User.listofAlbums){
+                for (Photo p: a.listofPhotos){
+                    for (Tag T : p.listofTags){
+                        if (equalTags(search, T.type + "=" + T.value)){
+                            tempAlb.addPhoto(p);
+                            continue;
+                        }
+                    }
+                }
+            }
+            if (tempAlb.listofPhotos.isEmpty()){
+                AlertDialog.Builder builder = new AlertDialog.Builder(context);
+                builder.setTitle("Error");
+                builder.setMessage("No photos with this tag found.");
+                builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        dialogInterface.dismiss();
+                    }
+                });
+                AlertDialog alertDialog = builder.create();
+                alertDialog.show();
+                return;
+            }
+            SlideshowController.fromSearch = true;
+            SlideshowController.currentAlb = tempAlb;
+            Intent intent = new Intent(this, SlideshowController.class);
+            startActivity(intent);
 
         }
         else if (Conjunctive.isChecked()){

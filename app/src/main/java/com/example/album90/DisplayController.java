@@ -79,6 +79,8 @@ public class DisplayController extends AppCompatActivity {
     }
 
     public void slideshow(View view){
+        SlideshowController.currentAlb = AlbumController.currentAlbum;
+        SlideshowController.fromSearch = false;
         Intent intent = new Intent(this, SlideshowController.class);
         startActivity(intent);
 
