@@ -15,8 +15,9 @@ import java.util.ArrayList;
 
 public class DisplayController extends AppCompatActivity {
 
-    public static Photo photo = null;
+    public static Photo p = null;
     public static int index;
+
 
     private Button BackButton;
     private Button addTagButton;
@@ -40,7 +41,8 @@ public class DisplayController extends AppCompatActivity {
         slideshowButton = findViewById(R.id.slideshowButton);
         image = findViewById(R.id.displayImage);
         TagList = findViewById(R.id.TagList);
-        Photo p = AlbumController.currentAlbum.listofPhotos.get((AlbumController.curPage * 6) + index);
+         p = AlbumController.currentAlbum.listofPhotos.get((AlbumController.curPage * 6) + index);
+        System.out.println(AlbumController.curPage + " " + index);
         image.setImageURI(Uri.parse(p.path));
         for (Tag tag: p.listofTags){
             String s = tag.type + "=" + tag.value;
@@ -53,14 +55,14 @@ public class DisplayController extends AppCompatActivity {
 
     public void Go_Last(View view){
         index = 0;
-        photo = null;
+        p = null;
         Intent intent = new Intent(this, AlbumController.class);
         startActivity(intent);
 
     }
 
     public void addTag(View view){
-        TagController.listoftags = photo.listofTags;
+        TagController.listoftags = p.listofTags;
         TagController.AddClicked = true;
         TagController.deleteClicked = false;
         Intent intent = new Intent(this, TagController.class);
@@ -70,7 +72,7 @@ public class DisplayController extends AppCompatActivity {
     }
 
     public void deleteTag(View view){
-        TagController.listoftags = photo.listofTags;
+        TagController.listoftags = p.listofTags;
         TagController.AddClicked = false;
         TagController.deleteClicked = true;
         Intent intent = new Intent(this, TagController.class);

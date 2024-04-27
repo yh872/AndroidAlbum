@@ -377,9 +377,8 @@ public class AlbumController extends AppCompatActivity {
                 }
                 else if (displayClicked){
                     displayClicked = false;
-                    int index = curPage * 6;
+                    int index = 0;
                     DisplayController.index = index;
-                    DisplayController.photo = currentAlbum.getAllPhotos().get(index);
                     Intent intent = new Intent(AlbumController.this, DisplayController.class);
                     startActivity(intent);
 
@@ -439,9 +438,9 @@ public class AlbumController extends AppCompatActivity {
                 }
                 else if (displayClicked){
                     displayClicked = false;
-                    int index = (curPage * 6) + 1;
+                    int index = 1;
                     DisplayController.index = index;
-                    DisplayController.photo = currentAlbum.getAllPhotos().get(index);
+
                     Intent intent = new Intent(AlbumController.this, DisplayController.class);
                     startActivity(intent);
 
@@ -501,9 +500,8 @@ public class AlbumController extends AppCompatActivity {
                 }
                 else if (displayClicked){
                     displayClicked = false;
-                    int index = (curPage * 6) + 2;
+                    int index = 2;
                     DisplayController.index = index;
-                    DisplayController.photo = currentAlbum.getAllPhotos().get(index);
                     Intent intent = new Intent(AlbumController.this, DisplayController.class);
                     startActivity(intent);
 
@@ -563,9 +561,9 @@ public class AlbumController extends AppCompatActivity {
                 }
                 else if (displayClicked){
                     displayClicked = false;
-                    int index = (curPage * 6) + 3;
+                    int index = 3;
                     DisplayController.index = index;
-                    DisplayController.photo = currentAlbum.getAllPhotos().get(index);
+
                     Intent intent = new Intent(AlbumController.this, DisplayController.class);
                     startActivity(intent);
 
@@ -625,9 +623,9 @@ public class AlbumController extends AppCompatActivity {
                 }
                 else if (displayClicked){
                     displayClicked = false;
-                    int index = (curPage * 6) + 4;
+                    int index =  4;
                     DisplayController.index = index;
-                    DisplayController.photo = currentAlbum.getAllPhotos().get(index);
+
                     Intent intent = new Intent(AlbumController.this, DisplayController.class);
                     startActivity(intent);
 
@@ -687,9 +685,9 @@ public class AlbumController extends AppCompatActivity {
                 }
                 else if (displayClicked){
                     displayClicked = false;
-                    int index = (curPage * 6) + 5;
+                    int index =  5;
                     DisplayController.index = index;
-                    DisplayController.photo = currentAlbum.getAllPhotos().get(index);
+
                     Intent intent = new Intent(AlbumController.this, DisplayController.class);
                     startActivity(intent);
 
