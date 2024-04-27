@@ -207,9 +207,149 @@ public class SearchController extends AppCompatActivity {
 
         }
         else if (Conjunctive.isChecked()){
+            if (!search.contains(",")){
+                AlertDialog.Builder builder = new AlertDialog.Builder(context);
+                builder.setTitle("Error");
+                builder.setMessage("Invalid search.");
+                builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        dialogInterface.dismiss();
+                    }
+                });
+                AlertDialog alertDialog = builder.create();
+                alertDialog.show();
+                return;
+            }
+            int commaIndex = search.indexOf(',');
+
+            String tag1 = search.substring(0,commaIndex);
+            String tag2 = search.substring(commaIndex+1);
+            if (!validTag(tag1) || !validTag(tag2)){
+                AlertDialog.Builder builder = new AlertDialog.Builder(context);
+                builder.setTitle("Error");
+                builder.setMessage("Invalid search.");
+                builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        dialogInterface.dismiss();
+                    }
+                });
+                AlertDialog alertDialog = builder.create();
+                alertDialog.show();
+                return;
+            }
+            boolean tag1found =false;
+            boolean tag2found = false;
+            Album tempAlb = new Album("temp");
+            for (Album a : User.listofAlbums){
+                for (Photo p: a.listofPhotos){
+                    for (Tag T : p.listofTags){
+                        if (equalTags(tag1, T.type + "=" + T.value)){
+                            tag1found = true;
+                        }
+                        if (equalTags(tag2, T.type + "=" + T.value)){
+                            tag2found = true;
+                        }
+                    }
+                    if (tag1found && tag2found){
+                        tempAlb.addPhoto(p);
+                    }
+                    tag1found = false;
+                    tag2found = false;
+                }
+            }
+            if (tempAlb.listofPhotos.isEmpty()){
+                AlertDialog.Builder builder = new AlertDialog.Builder(context);
+                builder.setTitle("Error");
+                builder.setMessage("No photos with both tags found.");
+                builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        dialogInterface.dismiss();
+                    }
+                });
+                AlertDialog alertDialog = builder.create();
+                alertDialog.show();
+                return;
+            }
+            SlideshowController.fromSearch = true;
+            SlideshowController.currentAlb = tempAlb;
+            Intent intent = new Intent(this, SlideshowController.class);
+            startActivity(intent);
+
 
         }
         else if (Disjunctive.isChecked()){
+            if (!search.contains(",")){
+                AlertDialog.Builder builder = new AlertDialog.Builder(context);
+                builder.setTitle("Error");
+                builder.setMessage("Invalid search.");
+                builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        dialogInterface.dismiss();
+                    }
+                });
+                AlertDialog alertDialog = builder.create();
+                alertDialog.show();
+                return;
+            }
+            int commaIndex = search.indexOf(',');
+            String tag1 = search.substring(0,commaIndex);
+            String tag2 = search.substring(commaIndex+1);
+            if (!validTag(tag1) || !validTag(tag2)){
+                AlertDialog.Builder builder = new AlertDialog.Builder(context);
+                builder.setTitle("Error");
+                builder.setMessage("Invalid search.");
+                builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        dialogInterface.dismiss();
+                    }
+                });
+                AlertDialog alertDialog = builder.create();
+                alertDialog.show();
+                return;
+            }
+            boolean tag1found =false;
+            boolean tag2found = false;
+            Album tempAlb = new Album("temp");
+            for (Album a : User.listofAlbums){
+                for (Photo p: a.listofPhotos){
+                    for (Tag T : p.listofTags){
+                        if (equalTags(tag1, T.type + "=" + T.value)){
+                            tag1found = true;
+                        }
+                        if (equalTags(tag2, T.type + "=" + T.value)){
+                            tag2found = true;
+                        }
+                    }
+                    if (tag1found || tag2found){
+                        tempAlb.addPhoto(p);
+                    }
+                    tag1found = false;
+                    tag2found = false;
+                }
+            }
+            if (tempAlb.listofPhotos.isEmpty()){
+                AlertDialog.Builder builder = new AlertDialog.Builder(context);
+                builder.setTitle("Error");
+                builder.setMessage("No photos with one of these tags found.");
+                builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        dialogInterface.dismiss();
+                    }
+                });
+                AlertDialog alertDialog = builder.create();
+                alertDialog.show();
+                return;
+            }
+            SlideshowController.fromSearch = true;
+            SlideshowController.currentAlb = tempAlb;
+            Intent intent = new Intent(this, SlideshowController.class);
+            startActivity(intent);
 
         }
     }
